@@ -167,8 +167,8 @@ O estado **Distributed Map** processa arquivos CSV armazenados no S3 em larga es
 | 7 | Confirmação de criação da máquina de estado | ![Máquina criada](images/7-%20Captura%20de%20tela%202026-05-21%20160053.png) |
 | 8 | Criação da função Lambda MinhaFuncao | ![Lambda criada](images/8-%20Captura%20de%20tela%202026-05-21%20160150.png) |
 | 9 | Confirmação de permissões IAM geradas | ![Permissões IAM](images/9-%20Captura%20de%20tela%202026-05-21%20162505.png) |
-| 10 | Execução iniciada com êxito | ![Execução iniciada](images/Captura%20de%20tela%202026-05-21%20163022.png) |
-| 11 | Histórico de eventos — ExecutionSucceeded | ![Execução com sucesso](images/Captura%20de%20tela%202026-05-21%20163040.png) |
+| 10 | Execução iniciada com êxito | ![Execução iniciada](images/10-%20Captura%20de%20tela%202026-05-21%20163022.png) |
+| 11 | Histórico de eventos — ExecutionSucceeded | ![Execução com sucesso](images/11-%20Captura%20de%20tela%202026-05-21%20163040.png) |
 
 ---
 
