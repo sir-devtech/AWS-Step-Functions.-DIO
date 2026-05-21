@@ -9,7 +9,7 @@
 
 Este repositório documenta minha experiência prática com **AWS Step Functions**, cobrindo desde a criação de máquinas de estado simples até workflows que integram AWS Lambda, Amazon S3 e Amazon CloudWatch.
 
-> Status: em andamento. As anotações abaixo servem como roteiro para executar o laboratório e registrar os aprendizados com capturas próprias do console AWS.
+> Laboratório concluído com criação de máquina de estado, integração com AWS Lambda e execução com sucesso registrada.
 
 ---
 
@@ -154,17 +154,21 @@ O estado **Distributed Map** processa arquivos CSV armazenados no S3 em larga es
 
 ---
 
-## 📸 Evidências Sugeridas
+## 📸 Capturas de Tela do Laboratório
 
-Inclua capturas próprias na pasta `images/`, por exemplo:
-
-- Tela da máquina de estado criada no Step Functions
-- Execução finalizada com sucesso
-- Função Lambda usada no workflow
-- Bucket S3 com arquivos de entrada
-- Logs no CloudWatch
-
-> Observação: as capturas devem ser do seu ambiente/laboratório, não dos vídeos do professor.
+| # | Descrição | Imagem |
+|---|-----------|--------|
+| 1 | Console AWS Step Functions | ![Console Step Functions](images/1-%20Console%20Step%20Functions.png) |
+| 2 | Tela de criação da máquina de estado | ![Criar máquina](images/2-%20Criar%20maquina%20opções.png) |
+| 3 | Galeria de templates (busca DynamoDB) | ![Templates DynamoDB](images/3-%20Captura%20de%20tela%202026-05-21%20154902.png) |
+| 4 | Detalhe do template Distributed Map | ![Template Distributed Map](images/4-%20Captura%20de%20tela%202026-05-21%20154944.png) |
+| 5 | Workflow Studio — configuração MinhaStateMachine | ![Workflow Studio](images/5-%20Captura%20de%20tela%202026-05-21%20155430.png) |
+| 6 | Estado Lambda Invoke adicionado ao canvas | ![Lambda Invoke](images/6-%20Captura%20de%20tela%202026-05-21%20155801.png) |
+| 7 | Confirmação de criação da máquina de estado | ![Máquina criada](images/7-%20Captura%20de%20tela%202026-05-21%20160053.png) |
+| 8 | Criação da função Lambda MinhaFuncao | ![Lambda criada](images/8-%20Captura%20de%20tela%202026-05-21%20160150.png) |
+| 9 | Confirmação de permissões IAM geradas | ![Permissões IAM](images/9-%20Captura%20de%20tela%202026-05-21%20162505.png) |
+| 10 | Execução iniciada com êxito | ![Execução iniciada](images/Captura%20de%20tela%202026-05-21%20163022.png) |
+| 11 | Histórico de eventos — ExecutionSucceeded | ![Execução com sucesso](images/Captura%20de%20tela%202026-05-21%20163040.png) |
 
 ---
 
@@ -180,7 +184,7 @@ AWS PROJETO 2/
 ├── lambda/
 │   └── processador.py                # Exemplo de função Lambda processadora
 └── images/
-    └── (capturas de tela do laboratório)
+    └── (11 capturas de tela do laboratório)
 ```
 
 ---
@@ -195,14 +199,14 @@ AWS PROJETO 2/
 
 ---
 
-## ✅ Como Finalizar a Entrega
+## ✅ Entrega
 
-1. Assistir todas as aulas do módulo na DIO.
-2. Executar a prática no console AWS seguindo o roteiro acima.
-3. Salvar suas capturas de tela na pasta `images/`.
-4. Atualizar este README marcando os itens concluídos.
-5. Subir os arquivos para o GitHub.
-6. Enviar o link do repositório público no botão **Entregar Projeto** da DIO.
+- [x] Assistidas todas as aulas do módulo na DIO
+- [x] Máquina de estado criada no console AWS (MinhaStateMachine)
+- [x] Função Lambda integrada (MinhaFuncao — Python 3.14)
+- [x] Execução realizada com status **Com êxito** (7 eventos registrados)
+- [x] Capturas de tela salvas na pasta `images/`
+- [x] Repositório público publicado no GitHub
 
 ---
 
