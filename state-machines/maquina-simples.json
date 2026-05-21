@@ -1,0 +1,13 @@
+{
+  "Comment": "Máquina de estado simples — primeiro exemplo",
+  "StartAt": "PrimeiroEstado",
+  "States": {
+    "PrimeiroEstado": {
+      "Type": "Pass",
+      "Result": {
+        "mensagem": "Workflow iniciado com sucesso!"
+      },
+      "End": true
+    }
+  }
+}

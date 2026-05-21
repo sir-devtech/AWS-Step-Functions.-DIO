@@ -1,0 +1,47 @@
+{
+  "Comment": "Workflow com Distributed Map para processar arquivos CSV no S3",
+  "StartAt": "ProcessaArquivosS3",
+  "States": {
+    "ProcessaArquivosS3": {
+      "Type": "Map",
+      "ItemReader": {
+        "Resource": "arn:aws:states:::s3:listObjectsV2",
+        "Parameters": {
+          "Bucket": "seu-bucket-de-dados",
+          "Prefix": "seu-prefixo/"
+        }
+      },
+      "ItemProcessor": {
+        "ProcessorConfig": {
+          "Mode": "DISTRIBUTED",
+          "ExecutionType": "STANDARD"
+        },
+        "StartAt": "ProcessaUmCSV",
+        "States": {
+          "ProcessaUmCSV": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Parameters": {
+              "FunctionName": "sua-funcao-processadora:$LATEST",
+              "Payload.$": "$"
+            },
+            "ResultSelector": {
+              "status": "processado",
+              "arquivo.$": "$.Payload.arquivo"
+            },
+            "End": true
+          }
+        }
+      },
+      "MaxConcurrency": 10,
+      "ResultWriter": {
+        "Resource": "arn:aws:states:::s3:putObject",
+        "Parameters": {
+          "Bucket": "seu-bucket-de-resultados",
+          "Prefix": "resultados/"
+        }
+      },
+      "End": true
+    }
+  }
+}

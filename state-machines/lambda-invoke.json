@@ -1,0 +1,40 @@
+{
+  "Comment": "Máquina de estado com invocação de AWS Lambda",
+  "StartAt": "InvocaLambda",
+  "States": {
+    "InvocaLambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "sua-funcao-lambda:$LATEST",
+        "Payload.$": "$"
+      },
+      "ResultSelector": {
+        "resultado.$": "$.Payload"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["Lambda.ServiceException", "Lambda.TooManyRequestsException"],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 3,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "Next": "ErroNoWorkflow"
+        }
+      ],
+      "Next": "SucessoFinal"
+    },
+    "SucessoFinal": {
+      "Type": "Succeed"
+    },
+    "ErroNoWorkflow": {
+      "Type": "Fail",
+      "Error": "LambdaFalhou",
+      "Cause": "A função Lambda retornou um erro inesperado."
+    }
+  }
+}
